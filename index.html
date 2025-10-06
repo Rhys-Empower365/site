@@ -7,11 +7,12 @@
     <style>
         /* Define Brand Colors */
         :root {
-            --primary-blue: #00345D;      /* Richer Dark Header/Footer background */
-            --logo-blue: #0078D4;         /* Action Blue - used for Nav bar */
-            --logo-orange: #FFC300;       /* Accent/CTA Color */
+            --primary-blue: #00345D;      /* Rich Dark Blue */
+            --logo-blue: #0078D4;         /* Action Blue for Nav */
+            --logo-orange: #FFC300;       /* Accent/Title Color */
             --text-dark: #2c3e50;         /* Dark text for readability */
             --bg-light: #f9fafc;          /* Off-white background */
+            --white: #ffffff;
         }
 
         /* Base Styles & Typography */
@@ -28,78 +29,100 @@
             padding: 0 1rem;
         }
         
-        /* Header & Navigation */
+        /* Header (The Hero Section) */
         header {
-            background: var(--primary-blue); /* Richer Dark Blue */
+            background: var(--primary-blue);
             color: #fff;
-            padding: 2.5rem 0 0; /* Reduced bottom padding to bring nav closer */
+            padding: 5rem 0 3rem; 
             text-align: center;
         }
         .logo-area {
-            /* FLEXBOX FIX: Ensures logo and text stack correctly and are centered */
-            display: flex; 
-            flex-direction: column;
+            /* Fixes the white circle issue and adds visual pop */
+            display: inline-block; /* Allows padding and border */
+            width: 110px; 
+            height: 110px;
+            margin-bottom: 20px;
+            
+            /* The image itself (the white circle) */
+            background-color: var(--white); 
+            border-radius: 50%;
+            border: 5px solid var(--white); /* White ring border */
+            box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.5); /* Soft outer glow */
+            
+            /* To center the image within the circle container */
+            display: flex;
             justify-content: center;
             align-items: center;
-            margin-bottom: 2rem; /* Spacing between logo block and big title */
+            overflow: hidden; /* Important for clean edges */
         }
         .logo-area img {
-            width: 80px; 
-            height: 80px;
-            margin-bottom: 5px; /* Tighter spacing below logo */
-            border-radius: 50%;
-            content: url('image_7438a7.jpg'); 
+            /* Image is now the full size of the container, leveraging its background */
+            width: 100%; 
+            height: 100%;
+            object-fit: contain;
+            margin: 0; /* Override any inherited margin */
         }
         header h1 {
-            color: var(--logo-orange); /* Vibrant Orange Accent */
-            margin: 0.5rem 0 0; /* Added slight top margin for spacing from logo */
-            font-size: 3.2rem; /* Made the company name even bigger */
-            letter-spacing: 1px;
-            font-weight: 700;
+            color: var(--logo-orange); 
+            margin: 0;
+            font-size: 3.5rem; 
+            letter-spacing: 1.5px;
+            font-weight: 800;
         }
         .tagline {
-            margin: 1rem 0 2.5rem; /* Increased vertical space around tagline */
-            font-size: 1.2rem; /* Made tagline bigger and clearer */
+            margin: 0.5rem 0 0;
+            font-size: 1.2rem;
             font-weight: 300;
             color: #fff;
         }
         
-        /* Navigation (the blue bar at the bottom of your screenshot) */
+        /* Navigation (Sticks right below the header) */
         nav {
-            background: var(--logo-blue); /* Action blue for navigation bar */
-            padding: 0.75rem 0;
-            /* FLEXBOX FIX: Ensures navigation links are evenly spaced */
+            background: var(--logo-blue); 
+            padding: 1rem 0;
             display: flex;
             justify-content: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
         }
         nav a {
             color: #fff;
             text-decoration: none;
-            margin: 0 1.5rem;
+            margin: 0 2rem; 
             font-weight: 600;
-            padding: 0.5rem 0;
             transition: color 0.3s;
+            padding: 0 0.5rem;
         }
         nav a:hover {
             color: var(--logo-orange);
         }
 
-        /* Sections */
+        /* Content Sections */
         section {
             padding: 3rem 1rem;
         }
-        section:nth-child(odd) {
-            background: var(--bg-light);
+        .content-box {
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); 
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+            border-top: 5px solid var(--logo-blue);
         }
         section h2 {
             color: var(--primary-blue);
             font-size: 2rem;
-            border-bottom: 2px solid var(--logo-orange);
+            border-bottom: 3px solid var(--logo-orange); 
             padding-bottom: 0.5rem;
             margin-bottom: 1.5rem;
         }
         
         /* Services Grid */
+        #services .content-box {
+            border-top: none; 
+            box-shadow: none;
+        }
+
         #services ul {
             list-style: none;
             padding: 0;
@@ -108,11 +131,11 @@
             gap: 20px;
         }
         #services li {
-            background: #fff;
+            background: var(--bg-light); 
             padding: 20px;
-            border-left: 5px solid var(--logo-blue);
+            border-left: 5px solid var(--logo-blue); 
             border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
             font-weight: 500;
             transition: transform 0.3s;
         }
@@ -126,11 +149,11 @@
             display: inline-block;
             background: var(--logo-orange); 
             color: var(--text-dark);
-            padding: 12px 30px;
+            padding: 15px 35px;
             text-decoration: none;
             font-weight: 700;
             border-radius: 5px;
-            margin-top: 20px;
+            margin-top: 25px;
             transition: background 0.3s, transform 0.2s;
             box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
         }
@@ -163,15 +186,17 @@
         <a href="#contact">Get Started</a>
     </nav>
 
-    <section id="about" class="container">
-        <h2>About Us</h2>
-        <p>
-            Empower 365 is a Power Platform consultancy dedicated to helping businesses
-            transform processes, improve productivity, and deliver smarter insights.
-            With **5+ years of hands-on experience**, we know how to strategically leverage
-            the full Power Platform suite: **Power Apps, Power Automate, Power BI, and Dataverse**.
-            We focus on scalable, secure, and user-friendly solutions that drive real business value.
-        </p>
+    <section id="about">
+        <div class="container content-box">
+            <h2>About Us</h2>
+            <p>
+                Empower 365 is a Power Platform consultancy dedicated to helping businesses
+                transform processes, improve productivity, and deliver smarter insights.
+                With **5+ years of hands-on experience**, we know how to strategically leverage
+                the full Power Platform suite: **Power Apps, Power Automate, Power BI, and Dataverse**.
+                We focus on scalable, secure, and user-friendly solutions that drive real business value.
+            </p>
+        </div>
     </section>
 
     <section id="services">
@@ -187,21 +212,22 @@
         </div>
     </section>
 
-    <section id="contact" class="container">
-        <h2>Ready to Empower Your Business?</h2>
-        <p>
-            Ready to explore how Empower 365 can support your digital transformation journey? 
-            We provide a free initial consultation to scope your needs and outline a solution.
-        </p>
-        <p>
-            <strong>Email:</strong> customerservice@empower365.co.uk
-        </p>
-        <a href="mailto:customerservice@empower365.co.uk" class="cta-button">Start Your Free Consultation Today</a>
-    </section>
+    <section id="contact">
+        <div class="container content-box">
+            <h2>Ready to Empower Your Business?</h2>
+            <p>
+                Ready to explore how Empower 365 can support your digital transformation journey? 
+                We provide a free initial consultation to scope your needs and outline a solution.
+            </p>
+            <p>
+                <strong>Email:</strong> customerservice@empower365.co.uk
+            </p>
+            <a href="mailto:customerservice@empower365.co.uk" class="cta-button">Start Your Free Consultation Today</a>
+        </section>
+    </div>
 
     <footer>
         <p>&copy; 2025 Empower 365. All rights reserved.</p>
     </footer>
 </body>
 </html>
-
