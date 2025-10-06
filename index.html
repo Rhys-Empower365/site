@@ -1,104 +1,206 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Empower 365 | Power Platform Consultancy</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      line-height: 1.6;
-      background: #f9fafc;
-      color: #333;
-    }
-    header {
-      background: #004578; /* Microsoft blue */
-      color: #fff;
-      padding: 2rem 1rem;
-      text-align: center;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 2.5rem;
-    }
-    header p {
-      margin: 0.5rem 0 0;
-      font-size: 1.2rem;
-    }
-    nav {
-      background: #00345d;
-      text-align: center;
-      padding: 0.5rem;
-    }
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      margin: 0 1rem;
-      font-weight: bold;
-    }
-    section {
-      max-width: 900px;
-      margin: auto;
-      padding: 2rem 1rem;
-    }
-    section h2 {
-      color: #004578;
-    }
-    footer {
-      background: #004578;
-      color: #fff;
-      text-align: center;
-      padding: 1rem;
-      margin-top: 2rem;
-    }
-  </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Empower 365 | Power Platform Consultancy</title>
+    <style>
+        /* Define Brand Colors */
+        :root {
+            --primary-blue: #00345D;      /* Richer Dark Header/Footer background */
+            --logo-blue: #0078D4;         /* Action Blue - used for Nav bar */
+            --logo-orange: #FFC300;       /* Accent/CTA Color */
+            --text-dark: #2c3e50;         /* Dark text for readability */
+            --bg-light: #f9fafc;          /* Off-white background */
+        }
+
+        /* Base Styles & Typography */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            line-height: 1.6;
+            background: #ffffff;
+            color: var(--text-dark);
+        }
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            padding: 0 1rem;
+        }
+        
+        /* Header & Navigation */
+        header {
+            background: var(--primary-blue); /* Richer Dark Blue */
+            color: #fff;
+            padding: 2.5rem 0 0; /* Reduced bottom padding to bring nav closer */
+            text-align: center;
+        }
+        .logo-area {
+            /* FLEXBOX FIX: Ensures logo and text stack correctly and are centered */
+            display: flex; 
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 2rem; /* Spacing between logo block and big title */
+        }
+        .logo-area img {
+            width: 80px; 
+            height: 80px;
+            margin-bottom: 5px; /* Tighter spacing below logo */
+            border-radius: 50%;
+            content: url('image_7438a7.jpg'); 
+        }
+        header h1 {
+            color: var(--logo-orange); /* Vibrant Orange Accent */
+            margin: 0.5rem 0 0; /* Added slight top margin for spacing from logo */
+            font-size: 3.2rem; /* Made the company name even bigger */
+            letter-spacing: 1px;
+            font-weight: 700;
+        }
+        .tagline {
+            margin: 1rem 0 2.5rem; /* Increased vertical space around tagline */
+            font-size: 1.2rem; /* Made tagline bigger and clearer */
+            font-weight: 300;
+            color: #fff;
+        }
+        
+        /* Navigation (the blue bar at the bottom of your screenshot) */
+        nav {
+            background: var(--logo-blue); /* Action blue for navigation bar */
+            padding: 0.75rem 0;
+            /* FLEXBOX FIX: Ensures navigation links are evenly spaced */
+            display: flex;
+            justify-content: center;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 1.5rem;
+            font-weight: 600;
+            padding: 0.5rem 0;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: var(--logo-orange);
+        }
+
+        /* Sections */
+        section {
+            padding: 3rem 1rem;
+        }
+        section:nth-child(odd) {
+            background: var(--bg-light);
+        }
+        section h2 {
+            color: var(--primary-blue);
+            font-size: 2rem;
+            border-bottom: 2px solid var(--logo-orange);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        /* Services Grid */
+        #services ul {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        #services li {
+            background: #fff;
+            padding: 20px;
+            border-left: 5px solid var(--logo-blue);
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            font-weight: 500;
+            transition: transform 0.3s;
+        }
+        #services li:hover {
+            transform: translateY(-5px); 
+            border-left-color: var(--logo-orange);
+        }
+
+        /* Contact & CTA Button */
+        .cta-button {
+            display: inline-block;
+            background: var(--logo-orange); 
+            color: var(--text-dark);
+            padding: 12px 30px;
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 5px;
+            margin-top: 20px;
+            transition: background 0.3s, transform 0.2s;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+        }
+        .cta-button:hover {
+            background: #f0b300; 
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-blue);
+            color: #fff;
+            text-align: center;
+            padding: 1.5rem 0;
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <h1>Empower 365</h1>
-    <p>Unlocking the full potential of Microsoft Power Platform</p>
-  </header>
+    <header>
+        <div class="logo-area">
+            <img src="image_7438a7.jpg" alt="E365 Logo"> 
+        </div>
+        <h1>Empower 365</h1>
+        <p class="tagline">Turning business challenges into digital solutions with Power Platform</p>
+    </header>
 
-  <nav>
-    <a href="#about">About</a>
-    <a href="#services">Services</a>
-    <a href="#contact">Contact</a>
-  </nav>
+    <nav>
+        <a href="#about">About Us</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Get Started</a>
+    </nav>
 
-  <section id="about">
-    <h2>About Us</h2>
-    <p>
-      Empower 365 is a Power Platform consultancy dedicated to helping businesses
-      transform processes, improve productivity, and deliver smarter insights.
-      With 5+ years of hands-on experience, we know how to get the most from
-      Power Apps, Power Automate, Power BI, and Dataverse.
-    </p>
-  </section>
+    <section id="about" class="container">
+        <h2>About Us</h2>
+        <p>
+            Empower 365 is a Power Platform consultancy dedicated to helping businesses
+            transform processes, improve productivity, and deliver smarter insights.
+            With **5+ years of hands-on experience**, we know how to strategically leverage
+            the full Power Platform suite: **Power Apps, Power Automate, Power BI, and Dataverse**.
+            We focus on scalable, secure, and user-friendly solutions that drive real business value.
+        </p>
+    </section>
 
-  <section id="services">
-    <h2>Our Services</h2>
-    <ul>
-      <li>📱 Custom Power Apps (Canvas & Model-Driven)</li>
-      <li>⚡ Process automation with Power Automate</li>
-      <li>📊 Dashboards & insights with Power BI</li>
-      <li>🛠️ PCF controls and advanced customisation</li>
-      <li>🔒 Governance, best practices, and training</li>
-    </ul>
-  </section>
+    <section id="services">
+        <div class="container">
+            <h2>Our Core Services</h2>
+            <ul>
+                <li>📱 Custom Power Apps (Canvas & Model-Driven) Development</li>
+                <li>⚡ End-to-end Process Automation with Power Automate</li>
+                <li>📊 Interactive Dashboards & Business Insights with Power BI</li>
+                <li>🛠️ Pro-Dev: PCF controls, custom connectors, and advanced customisation</li>
+                <li>🔒 Governance, Adoption Strategy, Best Practices, and User Training</li>
+            </ul>
+        </div>
+    </section>
 
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>
-      Ready to explore how Empower 365 can support your business? 
-      Get in touch today:
-    </p>
-    <p><strong>Email:</strong> customerservice@empower365.co.uk</p>
-  </section>
+    <section id="contact" class="container">
+        <h2>Ready to Empower Your Business?</h2>
+        <p>
+            Ready to explore how Empower 365 can support your digital transformation journey? 
+            We provide a free initial consultation to scope your needs and outline a solution.
+        </p>
+        <p>
+            <strong>Email:</strong> customerservice@empower365.co.uk
+        </p>
+        <a href="mailto:customerservice@empower365.co.uk" class="cta-button">Start Your Free Consultation Today</a>
+    </section>
 
-  <footer>
-    <p>&copy; 2025 Empower 365. All rights reserved.</p>
-  </footer>
+    <footer>
+        <p>&copy; 2025 Empower 365. All rights reserved.</p>
+    </footer>
 </body>
-
 </html>
