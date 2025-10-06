@@ -37,30 +37,28 @@
             text-align: center;
         }
         .logo-area {
-            /* Fixes the white circle issue and adds visual pop */
-            display: inline-block; /* Allows padding and border */
+            /* FIX: Changed to block and added auto margins to center it */
+            display: block; 
             width: 110px; 
             height: 110px;
-            margin-bottom: 20px;
+            margin: 0 auto 20px; /* Centering fix here (top, right/left auto, bottom) */
             
-            /* The image itself (the white circle) */
+            /* Logo styling for visual pop */
             background-color: var(--white); 
             border-radius: 50%;
-            border: 5px solid var(--white); /* White ring border */
-            box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.5); /* Soft outer glow */
+            border: 5px solid var(--white); 
+            box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.5); 
             
-            /* To center the image within the circle container */
             display: flex;
             justify-content: center;
             align-items: center;
-            overflow: hidden; /* Important for clean edges */
+            overflow: hidden; 
         }
         .logo-area img {
-            /* Image is now the full size of the container, leveraging its background */
             width: 100%; 
             height: 100%;
             object-fit: contain;
-            margin: 0; /* Override any inherited margin */
+            margin: 0; 
         }
         header h1 {
             color: var(--logo-orange); 
@@ -174,7 +172,7 @@
 <body>
     <header>
         <div class="logo-area">
-            <img src="avatarE365.png" alt="E365 Logo"> 
+            <img src="image_7438a7.jpg" alt="E365 Logo"> 
         </div>
         <h1>Empower 365</h1>
         <p class="tagline">Turning business challenges into digital solutions with Power Platform</p>
@@ -223,8 +221,8 @@
                 <strong>Email:</strong> customerservice@empower365.co.uk
             </p>
             <a href="mailto:customerservice@empower365.co.uk" class="cta-button">Start Your Free Consultation Today</a>
-        </section>
-    </div>
+        </div>
+    </section>
 
     <footer>
         <p>&copy; 2025 Empower 365. All rights reserved.</p>
